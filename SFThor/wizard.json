@@ -1,10 +1,10 @@
 {
     "version": 1,
     "kind": "project",
-    "id": "A.SFMLproject",
+    "id": "A.SFThorProject",
     "category": "B.CustomProjects",
     "trDescription": "Create a SFML application with Thor",
-    "trDisplayName": "SFML Application",
+    "trDisplayName": "SFML+Thor",
     "trDisplayCategory": "SFML",
     "icon": "../../global/genericfilewizard.png",
     "featuresRequired": [ "Plugin.CMakeProjectManager" ],
