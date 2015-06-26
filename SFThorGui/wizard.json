@@ -1,0 +1,43 @@
+{
+    "version": 1,
+    "kind": "project",
+    "id": "A.SFThorGuiProject",
+    "category": "B.CustomProjects",
+    "trDescription": "Create a SFML application with Thor and SFGUI",
+    "trDisplayName": "SFThorGUI",
+    "trDisplayCategory": "SFML",
+    "icon": "../../global/genericfilewizard.png",
+    "featuresRequired": [ "Plugin.CMakeProjectManager" ],
+
+    "pages" :
+    [
+        {
+            "trDisplayName": "Project Location",
+            "trShortTitle": "Location",
+            "typeId": "Project"
+        }
+    ],
+    "generators" :
+    [
+        {
+            "typeId": "File",
+            "data":
+            [
+                {
+                    "source": "CMakeLists.txt",
+                    "openAsProject": true
+                },
+                {
+                    "source": "Application.hpp"
+                },
+                {
+                    "source": "Application.cpp"
+                },
+                {
+                    "source": "main.cpp",
+                    "openInEditor": true
+                }
+            ]
+        }
+    ]
+}
