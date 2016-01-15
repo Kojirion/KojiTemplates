@@ -8,8 +8,8 @@ Application::Application():
 
     m_window.setFramerateLimit(60);
 
-    m_actions["Close"] = thor::Action(sf::Event::Closed);
-    m_system.connect("Close", std::bind(&sf::Window::close, &m_window));
+    m_actions[Action::Close] = thor::Action(sf::Event::Closed);
+    m_system.connect(Action::Close, std::bind(&sf::Window::close, &m_window));
 }
 
 void Application::run()

@@ -11,14 +11,17 @@ public:
     Application();
     void run();
 
-private:
-    typedef thor::ActionMap<std::string> ActionMap;
-    typedef ActionMap::CallbackSystem CallbackSystem;
+private:    
+    enum class Action{
+        Close
+    };
+    
+    using ActionMap = thor::ActionMap<Action>;
 
     sfg::SFGUI m_sfgui;
     sf::RenderWindow m_window;
     sfg::Desktop m_desktop;
     sf::Image m_icon;
     ActionMap m_actions;
-    CallbackSystem m_system;
+    ActionMap::CallbackSystem m_system;
 };
