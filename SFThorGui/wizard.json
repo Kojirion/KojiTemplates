@@ -36,6 +36,15 @@
                 {
                     "source": "main.cpp",
                     "openInEditor": true
+                },
+                {
+                    "source": "cmake/FindSFML.cmake"
+                },
+                                {
+                    "source": "cmake/FindSFGUI.cmake"
+                },
+                                {
+                    "source": "cmake/FindThor.cmake"
                 }
             ]
         }
