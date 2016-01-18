@@ -32,12 +32,10 @@
                     "openInEditor": true
                 },
                 {
-                    "source": "FindSFML.cmake",
-                    "openAsProject": true
+                    "source": "cmake/FindSFML.cmake"
                 },        
                 {
-                    "source": "FindThor.cmake",
-                    "openInEditor": true
+                    "source": "cmake/FindThor.cmake"
                 }
             ]
         }
