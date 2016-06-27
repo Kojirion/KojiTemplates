@@ -27,6 +27,9 @@
                     "source": "CMakeLists.txt",
                     "openAsProject": true
                 },
+                                {
+                    "source": "System.hpp"
+                },
                 {
                     "source": "Application.hpp"
                 },

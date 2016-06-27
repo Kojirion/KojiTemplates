@@ -12,7 +12,8 @@ find_package(SFGUI REQUIRED)
 include_directories(${SFML_INCLUDE_DIR} ${THOR_INCLUDE_DIR} ${SFGUI_INCLUDE_DIR})
 
 set(HDRS
-    Application.hpp
+    System.hpp
+    Application.hpp    
 )
 
 set(SRCS

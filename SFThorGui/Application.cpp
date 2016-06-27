@@ -1,35 +1,36 @@
 #include "Application.hpp"
 
-Application::Application():
-    m_window(sf::VideoMode(800, 600), "Application")
+Application::Application()
 {
-    if (m_icon.loadFromFile(""))
-        m_window.setIcon(m_icon.getSize().x, m_icon.getSize().y, m_icon.getPixelsPtr());
+    m_system.renderWindow.create(sf::VideoMode(800, 600), "Application");
+    m_system.renderWindow.setFramerateLimit(60);
 
-    m_window.setFramerateLimit(60);
-
-    m_actions[Action::Close] = thor::Action(sf::Event::Closed);
-    m_system.connect(Action::Close, std::bind(&sf::Window::close, &m_window));
+    m_system.actionMap[System::Action::Close] = thor::Action(sf::Event::Closed);
+    m_system.callbackSystem.connect0(System::Action::Close, [this] {
+        m_system.renderWindow.close();
+    });
 }
 
 void Application::run()
 {
     sf::Clock clock;
 
-    while (m_window.isOpen()){
+    while (m_system.renderWindow.isOpen()){
 
-        m_actions.clearEvents();
+        m_system.actionMap.clearEvents();
 
         sf::Event event;
-        while (m_window.pollEvent(event)){
-            m_actions.pushEvent(event);
-            m_desktop.HandleEvent(event);
+        while (m_system.renderWindow.pollEvent(event)){
+            m_system.actionMap.pushEvent(event);
+            m_system.desktop.HandleEvent(event);
         }
-
-        m_actions.invokeCallbacks(m_system, &m_window);
-        m_desktop.Update(clock.restart().asSeconds());
-
-        m_sfgui.Display(m_window);
-        m_window.display();
+        
+        auto frameTime = clock.restart();
+        m_system.actionMap.invokeCallbacks(m_system.callbackSystem, &m_system.renderWindow);
+        m_system.desktop.Update(frameTime.asSeconds());
+        
+        m_system.renderWindow.clear();
+        m_system.sfgui.Display(m_system.renderWindow);
+        m_system.renderWindow.display();
     }
 }
